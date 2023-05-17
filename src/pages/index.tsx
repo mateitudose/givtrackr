@@ -1,18 +1,16 @@
-import {Box} from "@/styles/Box";
 import NavbarComponent from "@/components/Navbar";
-import {Card, Col, Grid, Spacer, Text} from "@nextui-org/react";
-import {Flex} from "@/styles/Flex";
+import {Card, Col, Container, Grid, Spacer, Text} from "@nextui-org/react";
 
 export default function Home() {
     return (
-        <Box css={{overflow: "hidden", width: '100%'}}>
+        <Container fluid css={{padding: 0}}>
             <NavbarComponent/>
             <Spacer y={2}/>
-            <Box css={{textAlign: "center", padding: "$6"}}>
+            <Container css={{textAlign: "center", padding: "$6"}}>
                 <Text h1>GivTrackr</Text>
                 <Text css={{padding: "0 $9 0 $9"}}>Găsește ONG-uri de încredere și urmărește cum sunt folosite fondurile
                     donați</Text>
-            </Box>
+            </Container>
             <Grid.Container gap={3} justify={'center'} alignItems={"center"} alignContent={"center"}
                             css={{padding: "$12"}}>
                 <Grid xs={12} sm={5.5} md={3.5} justify={"center"}>
@@ -79,7 +77,7 @@ export default function Home() {
                     </Card>
                 </Grid>
             </Grid.Container>
-            <Box css={{textAlign: "center", padding: "$6"}}>
+            <Container css={{textAlign: "center", padding: "$6"}}>
                 <Text h1>Ce face GivTrackr?</Text>
                 <Text css={{padding: "0 $9 0 $9"}}>GivTrackr permite oricărui ONG să transparentizeze
                     ieșirile din conturile bancare
@@ -89,13 +87,13 @@ export default function Home() {
                 <Text css={{padding: "0 $9 0 $9"}}>Pentru a monitoriza ieșirile din contul bancar al ONG-ului, folosim
                     Open
                     Banking pentru a ne conecta la conturi și pentru a supraveghea tranzacțiile.</Text>
-            </Box>
+            </Container>
             <Spacer y={4}/>
-            <Flex css={{textAlign: "center"}}>
+            <Container fluid css={{textAlign: "center", padding: 0}}>
                 <Col css={{backgroundColor: "#cee4fe", paddingTop: "$9"}}>
                     <Text h6>Proiect realizat cu ♥ de Matei Tudose</Text>
                 </Col>
-            </Flex>
-        </Box>
+            </Container>
+        </Container>
     )
 }
