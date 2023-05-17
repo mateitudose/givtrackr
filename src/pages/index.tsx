@@ -18,7 +18,7 @@ export default function Home() {
                         <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
                             <Col>
                                 <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
-                                    Asociația "Kola Kariola"
+                                    Asociația &quot;Kola Kariola&quot;
                                 </Text>
                                 <Text h4 color="white">
                                     Salvează un cățel astăzi!
@@ -60,7 +60,7 @@ export default function Home() {
                         <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
                             <Col>
                                 <Text size={12} weight="bold" transform="uppercase" color="#ffffffAA">
-                                    Asociația pentru Protecția Animalelor "Hope"
+                                    Asociația pentru Protecția Animalelor &quot;Hope&quot;
                                 </Text>
                                 <Text h4 color="white">
                                     Donează pentru pisicile fără stăpân!
@@ -68,7 +68,7 @@ export default function Home() {
                             </Col>
                         </Card.Header>
                         <Card.Image
-                            src="https://scontent.fcnd1-1.fna.fbcdn.net/v/t39.30808-6/310651188_410249367975805_6878298329579991176_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=e3f864&_nc_ohc=hupnXZ0RPEsAX9GHwUg&_nc_ht=scontent.fcnd1-1.fna&oh=00_AfDjnuMXfwj-Qi3JArpdC4ccdUt_G6_J3GHpSQioyEsvRA&oe=6464DD7C"
+                            src="https://static.wixstatic.com/media/23c494_d7cb854fe2954ff79ae632976fc674d3~mv2.jpg/v1/fill/w_394,h_219,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/23c494_d7cb854fe2954ff79ae632976fc674d3~mv2.jpg"
                             objectFit="cover"
                             width="100%"
                             height={340}
