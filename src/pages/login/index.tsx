@@ -5,7 +5,7 @@ export default function Login() {
         <Grid.Container direction={"row"} gap={0} css={{height: "100vh"}}>
             <Grid xs={12} sm={6} justify={"center"} alignItems={"center"} alignContent={"center"}>
                 <Card css={{
-                    width: "95%", '@xs': {
+                    width: "100%", '@xs': {
                         width: "70%"
                     }
                 }}>
@@ -23,7 +23,7 @@ export default function Login() {
                             </Grid>
                             <Grid css={{width: "80%"}}>
                                 <Text>Parolă</Text>
-                                <Input width={"100%"} type={"password"}/>
+                                <Input.Password width={"100%"}/>
                             </Grid>
                         </Grid.Container>
                     </Card.Body>
@@ -49,6 +49,5 @@ export default function Login() {
                        css={{height: "100vh", minHeight: 950}} objectFit={"cover"} alt={"Side Image"}/>
             </Grid>
         </Grid.Container>
-    )
-        ;
+    );
 }

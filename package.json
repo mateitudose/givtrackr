@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@nextui-org/react": "^1.0.0-beta.12",
+    "@supabase/auth-helpers-nextjs": "^0.6.1",
+    "@supabase/auth-helpers-react": "^0.3.1",
+    "@supabase/supabase-js": "^2.22.0",
     "@types/node": "20.1.3",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
