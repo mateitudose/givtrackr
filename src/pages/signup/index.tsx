@@ -1,14 +1,33 @@
 import {Button, Card, Col, Grid, Image, Input, Loading, Spacer, Text} from "@nextui-org/react";
 import {useState} from "react";
+import {redirect} from "next/navigation";
+import {useRouter} from "next/router";
 
 export default function Signup() {
     const [isLoading, setIsLoading] = useState(false)
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const router = useRouter();
 
     const handleSignup = async () => {
         setIsLoading(true)
+        if (name === "" || email === "" || password === "") {
+            setIsLoading(false)
+            alert("Te rugăm să completezi toate câmpurile.")
+            return
+        }
+        const emailRegex: RegExp = /\S+@\S+\.\S+/
+        if (!emailRegex.test(email)) {
+            setIsLoading(false)
+            alert("Te rugăm să introduci o adresă de email validă.")
+            return
+        }
+        if (password.length < 8) {
+            setIsLoading(false)
+            alert("Te rugăm să introduci o parolă de minim 8 caractere.")
+            return
+        }
         const response = await fetch('/api/signup', {
             method: 'POST',
             body: JSON.stringify({
@@ -19,7 +38,7 @@ export default function Signup() {
         })
         if (response.status === 200) {
             setIsLoading(false)
-            window.location.href = "/"
+            router.replace("/login")
         } else {
             setIsLoading(false)
             alert("A apărut o eroare la înregistrare. Te rugăm să încerci din nou.")
@@ -69,7 +88,7 @@ export default function Signup() {
                         }}>
                             <Text>Ai deja un cont?<a href={"/login"}> Autentificare</a></Text>
                             <Spacer y={0.5}/>
-                            <Button color={"primary"} onClick={handleSignup}>{isLoading ?
+                            <Button color={"primary"} onPress={handleSignup}>{isLoading ?
                                 <Loading type="points-opacity" color="currentColor"
                                          size="sm"/> : "Înregistrare"}</Button>
                         </Col>
@@ -84,6 +103,5 @@ export default function Signup() {
                        maxDelay={3000}/>
             </Grid>
         </Grid.Container>
-    )
-        ;
+    );
 }

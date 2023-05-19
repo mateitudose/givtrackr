@@ -3,12 +3,9 @@ import {createServerSupabaseClient} from "@supabase/auth-helpers-nextjs";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const supabase = createServerSupabaseClient({req, res});
-    const {name, email, password} = req.body
+    const {name, email, password} = JSON.parse(req.body)
     const {data, error} = await supabase.auth.signUp({email, password})
     if (error) {
-        console.log("Name: ",name)
-        console.log("Email: ",email)
-        console.log("Password: ",password)
         console.log("Error: ",error)
         res.status(500).json({error: error.message})
     }

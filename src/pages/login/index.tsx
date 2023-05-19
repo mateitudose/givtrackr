@@ -1,6 +1,41 @@
-import {Button, Card, Col, Grid, Image, Input, Spacer, Text} from "@nextui-org/react";
+import {Button, Card, Col, Grid, Image, Input, Loading, Spacer, Text} from "@nextui-org/react";
+import {useState} from "react";
+import {createBrowserSupabaseClient} from "@supabase/auth-helpers-nextjs";
+import {useRouter} from "next/router";
 
 export default function Login() {
+    const [isLoading, setIsLoading] = useState(false)
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const supabaseClient = createBrowserSupabaseClient();
+    const router = useRouter();
+    const handleLogin = async () => {
+        setIsLoading(true)
+        if (email === "" || password === "") {
+            alert("Te rugăm să completezi toate câmpurile.")
+            return
+        }
+        const emailRegex: RegExp = /\S+@\S+\.\S+/
+        if (!emailRegex.test(email)) {
+            alert("Te rugăm să introduci o adresă de email validă.")
+            return
+        }
+        if (password.length < 8) {
+            alert("Te rugăm să introduci o parolă de minim 8 caractere.")
+            return
+        }
+        await supabaseClient.auth.signInWithPassword({
+            email: email,
+            password: password
+        }).then(() => {
+            router.replace("/dashboard");
+            setIsLoading(false)
+        }).catch((error) => {
+            setIsLoading(false)
+            alert("A apărut o eroare la conectare: " + error);
+        });
+    }
+
     return (
         <Grid.Container direction={"row"} gap={0} css={{height: "100vh"}}>
             <Grid xs={12} sm={6} justify={"center"} alignItems={"center"} alignContent={"center"}>
@@ -18,12 +53,10 @@ export default function Login() {
                     <Card.Body>
                         <Grid.Container direction={"column"} gap={1} justify={"center"} alignItems={"center"}>
                             <Grid css={{width: "80%"}}>
-                                <Text>Email</Text>
-                                <Input placeholder={"hello@asociatiahope.ro"} width={"100%"}/>
+                                <Input label={"Email"} placeholder={"hello@asociatiahope.ro"} width={"100%"} onChange={(e) => setEmail(e.target.value)}/>
                             </Grid>
                             <Grid css={{width: "80%"}}>
-                                <Text>Parolă</Text>
-                                <Input.Password width={"100%"}/>
+                                <Input.Password label={"Parolă"} width={"100%"} onChange={(e) => setPassword(e.target.value)}/>
                             </Grid>
                         </Grid.Container>
                     </Card.Body>
@@ -37,7 +70,9 @@ export default function Login() {
                         }}>
                             <Text>Nu ai cont?<a href={"/signup"}> Creează cont</a></Text>
                             <Spacer y={0.5}/>
-                            <Button color={"primary"}>Conectare</Button>
+                            <Button color={"primary"} onPress={handleLogin}>{isLoading ?
+                                <Loading type="points-opacity" color="currentColor"
+                                         size="sm"/> : "Conectare"}</Button>
                         </Col>
                     </Card.Footer>
                     <Spacer y={1}/>

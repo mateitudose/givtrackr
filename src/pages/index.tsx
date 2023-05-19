@@ -3,12 +3,12 @@ import {Card, Col, Container, Grid, Spacer, Text} from "@nextui-org/react";
 
 export default function Home() {
     return (
-        <Container fluid css={{padding: 0}}>
+        <Container fluid css={{padding: 0, margin: 0, maxWidth: "100vw", overflow: "hidden"}}>
             <NavbarComponent/>
             <Spacer y={2}/>
             <Container css={{textAlign: "center", padding: "$6"}}>
                 <Text h1>GivTrackr</Text>
-                <Text css={{padding: "0 $9 0 $9"}}>Găsește ONG-uri de încredere și urmărește cum sunt folosite fondurile
+                <Text css={{padding: "0 $9 0 $9"}}>Găsește ONG-uri de încredere și urmărește cum sunt folosiți banii
                     donați</Text>
             </Container>
             <Grid.Container gap={3} justify={'center'} alignItems={"center"} alignContent={"center"}
@@ -89,7 +89,7 @@ export default function Home() {
                     Banking pentru a ne conecta la conturi și pentru a supraveghea tranzacțiile.</Text>
             </Container>
             <Spacer y={4}/>
-            <Container fluid css={{textAlign: "center", padding: 0}}>
+            <Container css={{textAlign: "center", padding: 0, minWidth: "100vw"}}>
                 <Col css={{backgroundColor: "#cee4fe", paddingTop: "$9"}}>
                     <Text h6>Proiect realizat cu ♥ de Matei Tudose</Text>
                 </Col>
