@@ -63,18 +63,15 @@ export default function Signup() {
                     <Card.Body>
                         <Grid.Container direction={"column"} gap={1} justify={"center"} alignItems={"center"}>
                             <Grid css={{width: "80%"}}>
-                                <Text>Nume ONG</Text>
-                                <Input placeholder={"Asociația Hope"} width={"100%"}
+                                <Input label={"Nume ONG"} placeholder={"Asociația Hope"} width={"100%"}
                                        onChange={(e) => setName(e.target.value)}/>
                             </Grid>
                             <Grid css={{width: "80%"}}>
-                                <Text>Email</Text>
-                                <Input placeholder={"hello@asociatiahope.ro"} width={"100%"}
+                                <Input label={"Email"} placeholder={"hello@asociatiahope.ro"} width={"100%"}
                                        onChange={(e) => setEmail(e.target.value)}/>
                             </Grid>
                             <Grid css={{width: "80%"}}>
-                                <Text>Parolă</Text>
-                                <Input.Password width={"100%"} onChange={(e) => setPassword(e.target.value)}/>
+                                <Input.Password label={"Parolă"} width={"100%"} onChange={(e) => setPassword(e.target.value)}/>
                             </Grid>
                         </Grid.Container>
                     </Card.Body>

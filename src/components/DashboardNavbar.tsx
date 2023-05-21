@@ -1,8 +1,15 @@
 import {Button, Navbar, Spacer, Text} from "@nextui-org/react";
 import Link from "next/link";
 import {Logo} from "@/components/Logo";
+import {createBrowserSupabaseClient} from "@supabase/auth-helpers-nextjs";
 
-export default function NavbarComponent() {
+export default function HomeNavbar() {
+    const supabaseClient = createBrowserSupabaseClient();
+
+    const handleLogout = async () => {
+        await supabaseClient.auth.signOut();
+    }
+
     return (
         <Navbar isBordered variant="floating">
             <Navbar.Brand>
@@ -13,12 +20,12 @@ export default function NavbarComponent() {
                 </Text>
             </Navbar.Brand>
             <Navbar.Content>
-                <Navbar.Link color="inherit" href="/login">
-                    Conectare
+                <Navbar.Link color="inherit" href="/dashboard/settings">
+                    Setări
                 </Navbar.Link>
                 <Navbar.Item>
-                    <Button auto flat as={Link} href="/signup">
-                        Creare cont
+                    <Button auto flat as={Link} onPress={handleLogout} href={"/"}>
+                        Deconectare
                     </Button>
                 </Navbar.Item>
             </Navbar.Content>

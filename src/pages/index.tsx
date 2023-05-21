@@ -1,10 +1,11 @@
-import NavbarComponent from "@/components/Navbar";
+import HomeNavbar from "@/components/HomeNavbar";
 import {Card, Col, Container, Grid, Spacer, Text} from "@nextui-org/react";
+import Footer from "@/components/Footer";
 
 export default function Home() {
     return (
-        <Container fluid css={{padding: 0, margin: 0, maxWidth: "100vw", overflow: "hidden"}}>
-            <NavbarComponent/>
+        <Container fluid css={{padding: 0, maxWidth: "100vw", overflow: "hidden"}}>
+            <HomeNavbar/>
             <Spacer y={2}/>
             <Container css={{textAlign: "center", padding: "$6"}}>
                 <Text h1>GivTrackr</Text>
@@ -88,12 +89,8 @@ export default function Home() {
                     Open
                     Banking pentru a ne conecta la conturi și pentru a supraveghea tranzacțiile.</Text>
             </Container>
-            <Spacer y={4}/>
-            <Container css={{textAlign: "center", padding: 0, minWidth: "100vw"}}>
-                <Col css={{backgroundColor: "#cee4fe", paddingTop: "$9"}}>
-                    <Text h6>Proiect realizat cu ♥ de Matei Tudose</Text>
-                </Col>
-            </Container>
+            <Spacer y={5}/>
+            <Footer/>
         </Container>
     )
 }

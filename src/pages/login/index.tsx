@@ -13,21 +13,29 @@ export default function Login() {
         setIsLoading(true)
         if (email === "" || password === "") {
             alert("Te rugăm să completezi toate câmpurile.")
+            setIsLoading(false)
             return
         }
         const emailRegex: RegExp = /\S+@\S+\.\S+/
         if (!emailRegex.test(email)) {
             alert("Te rugăm să introduci o adresă de email validă.")
+            setIsLoading(false)
             return
         }
         if (password.length < 8) {
             alert("Te rugăm să introduci o parolă de minim 8 caractere.")
+            setIsLoading(false)
             return
         }
         await supabaseClient.auth.signInWithPassword({
             email: email,
             password: password
-        }).then(() => {
+        }).then((response) => {
+            if (response.error) {
+                alert("A apărut o eroare la conectare: " + response.error.message);
+                setIsLoading(false)
+                return
+            }
             router.replace("/dashboard");
             setIsLoading(false)
         }).catch((error) => {
