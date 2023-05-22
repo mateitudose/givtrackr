@@ -1,7 +1,8 @@
 import {Card, Text, Row, Image, Col, Spacer} from "@nextui-org/react";
 import {useEffect, useState} from "react";
+import {BankAccountData} from "@/interfaces/BankAccountData";
 
-export default function AccountCard() {
+export default function AccountCard({account}: {account: BankAccountData}) {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
 
     useEffect(() => {
@@ -21,7 +22,7 @@ export default function AccountCard() {
                         <>
                             <Spacer x={1}/>
                             <Image
-                                src={"https://cdn.nordigen.com/ais/UNICREDIT_UNCRITMM.png"}
+                                src={account.bank_logo}
                                 width={110}
                                 alt={"GivTrackr Logo"}
                                 objectFit={"cover"}
@@ -31,9 +32,9 @@ export default function AccountCard() {
                     )}
                     <Col css={{justifyContent: "center"}}>
                         <Text h4 css={{margin: 0}}>
-                            Unicredit Bank
+                            {account.bank_name}
                         </Text>
-                        <Text>RO04 BACX 0000 0021 3379 8000</Text>
+                        <Text>{account.iban}</Text>
                         <Text>▸ Apasă pentru a vedea lista de tranzacții</Text>
                     </Col>
                 </Row>

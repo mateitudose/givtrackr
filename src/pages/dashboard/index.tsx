@@ -8,13 +8,16 @@ import {Profile} from "@/interfaces/Profile";
 import AccountCard from "@/components/AccountCard";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import {BankAccountData} from "@/interfaces/BankAccountData";
 
 export default function Dashboard() {
     const supabaseClient = createBrowserSupabaseClient();
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<User | null>(null);
     const [profile, setProfile] = useState<Profile | null>(null);
+    const [accounts, setAccounts] = useState<BankAccountData[]>([]);
     const router = useRouter();
+    const {ref} = router.query;
 
     useEffect(() => {
         async function setUserProfile() {
@@ -37,13 +40,44 @@ export default function Dashboard() {
                 setProfile(data[0]);
             }
 
-            fetchUserProfile().then(() => {
+            fetchUserProfile().then(async () => {
                 setLoading(false);
+                if (ref) {
+                    fetch("/api/add_bank_account", {
+                        method: "POST",
+                        body: JSON.stringify({
+                            requisition_id: ref,
+                        })
+                    }).then((response) => {
+                        if (response.ok) {
+                            router.replace("/dashboard");
+                        }
+                    });
+                } else {
+                    const {
+                        data,
+                        error
+                    } = await supabaseClient.from("bank_accounts").select("*").eq("owned_by", response.data.user?.id);
+                    if (error) {
+                        console.error(error);
+                        return;
+                    }
+                    let bankAccountsArray: BankAccountData[] = [];
+                    for (const account of data) {
+                        bankAccountsArray.push({
+                            bank_id: account.id,
+                            bank_name: account.bank_name,
+                            bank_logo: account.bank_logo,
+                            iban: account.iban,
+                        });
+                    }
+                    setAccounts(bankAccountsArray);
+                }
             });
         }
 
         setUserProfile();
-    }, []);
+    }, [ref]);
 
 
     if (loading) {
@@ -67,16 +101,19 @@ export default function Dashboard() {
             <Spacer y={2}/>
             <Col css={{maxWidth: 800, padding: "$7"}}>
                 <Text h3 css={{textAlign: "left"}}>Conturi bancare</Text>
-                <AccountCard/>
-                <Spacer y={1}/>
-                <AccountCard/>
-                <Spacer y={1}/>
-                <AccountCard/>
+                {accounts.map((account) => {
+                        return (
+                            <>
+                                <AccountCard account={account}/>
+                                <Spacer y={1}/>
+                            </>
+                        );
+                    }
+                )}
                 <Spacer y={1}/>
                 <Button css={{width: "100%"}} as={Link} href={"/dashboard/add_account"}>Adaugă cont bancar</Button>
             </Col>
             <Spacer y={5}/>
-            <Footer/>
         </Container>
     );
 }

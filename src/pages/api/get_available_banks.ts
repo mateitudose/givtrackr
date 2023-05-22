@@ -3,7 +3,6 @@ import {NextApiRequest, NextApiResponse} from "next";
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const secretId = process.env.NORDIGEN_SECRET_ID;
     const secretKey = process.env.NORDIGEN_SECRET_KEY;
-
     const tokenResponse = await fetch("https://ob.nordigen.com/api/v2/token/new/", {
         method: "POST",
         headers: {
