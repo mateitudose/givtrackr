@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return;
     }
 
-    const {data : userData, error} = await supabaseClient.auth.getUser(req.headers.authorization);
+    const {data: userData, error} = await supabaseClient.auth.getUser(req.headers.authorization);
     if (error) {
         res.status(500).json({error: "Failed to get user data"});
         return;
@@ -26,8 +26,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         res.status(400).json({error: "Invalid request: institution_id is missing"});
         return;
     }
-    const redirectLink = req.headers.referer;
-    console.log(redirectLink);
+    let redirectLink = req.headers.referer;
+    const lastSlashIndex = redirectLink?.lastIndexOf("/");
+    if (lastSlashIndex !== -1) {
+        redirectLink = redirectLink?.substring(0, lastSlashIndex);
+    }
 
     const tokenResponse = await fetch("https://ob.nordigen.com/api/v2/token/new/", {
         method: "POST",
@@ -49,11 +52,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return;
     }
 
-    const consentResponse = await fetch("https://ob.nordigen.com/api/v2/requisitions", {
+    const consentResponse = await fetch("https://ob.nordigen.com/api/v2/requisitions/", {
         method: "POST",
         headers: {
-            "accept": "application/json",
             "Content-Type": "application/json",
+            "Accept": "application/json",
             "Authorization": 'Bearer ' + authToken,
         },
         body: JSON.stringify({

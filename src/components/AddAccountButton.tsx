@@ -1,8 +1,9 @@
 import {Card, Image, Text} from "@nextui-org/react";
 import {BankData} from "@/interfaces/BankData";
-import {redirect} from "next/navigation";
+import {useRouter} from "next/router";
 
 export default function AddAccountButton({bank}: { bank: BankData }) {
+    const router = useRouter();
     const getConsent = async () => {
         fetch("/api/get_consent_link", {
             method: "POST",
@@ -12,7 +13,7 @@ export default function AddAccountButton({bank}: { bank: BankData }) {
         }).then((response) => {
             if (response.ok) {
                 response.json().then((data) => {
-                    redirect(data.url);
+                    router.push(data.link);
                 });
             } else {
                 console.error(response);

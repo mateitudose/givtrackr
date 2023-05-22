@@ -6,7 +6,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const {name, email, password} = JSON.parse(req.body)
     const {data, error} = await supabase.auth.signUp({email, password})
     if (error) {
-        console.log("Error: ",error)
+        console.log("Error: ", error)
         res.status(500).json({error: error.message})
     }
     if (data) {
