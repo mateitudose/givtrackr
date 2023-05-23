@@ -1,6 +1,9 @@
 import HomeNavbar from "@/components/HomeNavbar";
 import {Card, Col, Container, Grid, Spacer, Text} from "@nextui-org/react";
 import Footer from "@/components/Footer";
+import {createBrowserSupabaseClient} from "@supabase/auth-helpers-nextjs";
+import {useEffect, useState} from "react";
+import {User} from "@supabase/auth-helpers-react";
 
 export default function Home() {
     return (
@@ -88,6 +91,10 @@ export default function Home() {
                 <Text css={{padding: "0 $9 0 $9"}}>Pentru a monitoriza ieșirile din contul bancar al ONG-ului, folosim
                     Open
                     Banking pentru a ne conecta la conturi și pentru a supraveghea tranzacțiile.</Text>
+                <Spacer y={1}/>
+                <Text css={{padding: "0 $9 0 $9"}}>După conectare, tot ce trebuie să faci este să menționezi în
+                    referința ordinului de plată în ce scop sunt cheltuiți banii, urmând ca pe viitor GivTrackr să
+                    ofere posibilitatea atașării unui document precum o factură pentru a justifica plata.</Text>
             </Container>
             <Spacer y={5}/>
             <Footer/>
