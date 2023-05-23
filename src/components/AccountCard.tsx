@@ -1,9 +1,11 @@
-import {Card, Text, Row, Image, Col, Spacer} from "@nextui-org/react";
+import {Card, Text, Row, Image, Col, Spacer, Link} from "@nextui-org/react";
 import {useEffect, useState} from "react";
 import {BankAccountData} from "@/interfaces/BankAccountData";
+import {useRouter} from "next/router";
 
 export default function AccountCard({account}: {account: BankAccountData}) {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
+    const router = useRouter();
 
     useEffect(() => {
         const mediaQuery = window.matchMedia("(max-width: 650px)");
@@ -13,8 +15,12 @@ export default function AccountCard({account}: {account: BankAccountData}) {
         return () => mediaQuery.removeEventListener("change", listener);
     }, []);
 
+    const handleRedirect = () => {
+        router.push(`/dashboard/${account.nordigen_id}`)
+    }
+
     return (
-        <Card isPressable isHoverable css={{maxWidth: 800}}>
+        <Card isPressable isHoverable css={{maxWidth: 800}} onPress={handleRedirect}>
             <Card.Body>
                 <Row css={{alignItems: "center", justifyContent:"center"}}>
                     <Spacer x={1}/>

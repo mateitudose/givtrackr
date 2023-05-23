@@ -2,11 +2,10 @@ import {createBrowserSupabaseClient} from "@supabase/auth-helpers-nextjs";
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import {User} from "@supabase/auth-helpers-react";
-import {Button, Col, Container, Grid, Image, Spacer, Text} from "@nextui-org/react";
+import {Button, Col, Container, Image, Spacer, Text} from "@nextui-org/react";
 import DashboardNavbar from "@/components/DashboardNavbar";
 import {Profile} from "@/interfaces/Profile";
 import AccountCard from "@/components/AccountCard";
-import Footer from "@/components/Footer";
 import Link from "next/link";
 import {BankAccountData} from "@/interfaces/BankAccountData";
 
@@ -65,6 +64,7 @@ export default function Dashboard() {
                     let bankAccountsArray: BankAccountData[] = [];
                     for (const account of data) {
                         bankAccountsArray.push({
+                            nordigen_id: account.nordigen_id,
                             bank_id: account.id,
                             bank_name: account.bank_name,
                             bank_logo: account.bank_logo,
