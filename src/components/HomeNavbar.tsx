@@ -12,15 +12,15 @@ export default function HomeNavbar() {
 
     useEffect(() => {
         async function fetchUser() {
-            const { data: user, error } = await supabaseClient.auth.getUser();
-            if (user) {
+            const {data: user, error} = await supabaseClient.auth.getUser();
+            if (user.user?.id) {
                 setUser(user.user);
                 setLoggedIn(true);
-            }
-            else if (error) {
+            } else if (error) {
                 console.log(error);
             }
         }
+
         fetchUser();
     }, []);
 

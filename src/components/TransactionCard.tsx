@@ -1,7 +1,5 @@
 import {Transaction} from "@/interfaces/Transaction";
-import {Card, Col, Image, Row, Spacer, Text} from "@nextui-org/react";
-import {useEffect, useState} from "react";
-import {useRouter} from "next/router";
+import {Card, Col, Text} from "@nextui-org/react";
 
 export default function TransactionCard({transaction}: { transaction: Transaction }) {
     return (
