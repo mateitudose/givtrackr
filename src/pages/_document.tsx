@@ -13,7 +13,12 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html lang="en">
+            <Html lang="ro">
+                <title>GivTrackr</title>
+                <meta
+                    name="description"
+                    content="GivTrackr permite ONG-urilor să își transparentizeze activitatea prin publicarea cheltuielilor efectuate."
+                />
                 <Head>{CssBaseline.flush()}</Head>
                 <body>
                 <Main/>
