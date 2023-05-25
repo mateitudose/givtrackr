@@ -3,7 +3,7 @@ import {Card, Col, Text} from "@nextui-org/react";
 
 export default function TransactionCard({transaction}: { transaction: Transaction }) {
     return (
-        <Card isPressable isHoverable css={{maxWidth: 800}}>
+        <Card isPressable isHoverable>
             <Card.Body>
                     <Col css={{justifyContent: "center"}}>
                         <Text h4 css={{margin: 0}}>

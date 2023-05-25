@@ -21,7 +21,7 @@ export default function TransactionsPage() {
                 })
             }).then((response) => {
                 if (!response.ok) {
-                    router.replace("/dashboard");
+                    router.replace("/");
                     return;
                 }
                 response.json().then((data) => {

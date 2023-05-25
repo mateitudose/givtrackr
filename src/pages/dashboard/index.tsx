@@ -2,7 +2,7 @@ import {createBrowserSupabaseClient} from "@supabase/auth-helpers-nextjs";
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
 import {User} from "@supabase/auth-helpers-react";
-import {Button, Col, Container, Image, Spacer, Text} from "@nextui-org/react";
+import {Avatar, Button, Col, Container, Image, Spacer, Text} from "@nextui-org/react";
 import DashboardNavbar from "@/components/DashboardNavbar";
 import {Profile} from "@/interfaces/Profile";
 import AccountCard from "@/components/AccountCard";
@@ -95,7 +95,7 @@ export default function Dashboard() {
         }}>
             <DashboardNavbar/>
             <Spacer y={2}/>
-            <Image src={"/givtrackr.png"} width={"$20"} alt={"GivTrackr Logo"} objectFit={"cover"}/>
+            <Avatar squared src={profile?.profile_photo} alt={"Profile Photo"} css={{size: 120}}/>
             <Text h1>Bun venit!</Text>
             <Text h4>{profile?.name}</Text>
             <Spacer y={2}/>
@@ -104,7 +104,7 @@ export default function Dashboard() {
                 {accounts.map((account) => {
                         return (
                             <>
-                                <AccountCard account={account}/>
+                                <AccountCard account={account} context={"dashboard"}/>
                                 <Spacer y={1}/>
                             </>
                         );

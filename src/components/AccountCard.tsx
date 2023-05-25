@@ -3,7 +3,11 @@ import {useEffect, useState} from "react";
 import {BankAccountData} from "@/interfaces/BankAccountData";
 import {useRouter} from "next/router";
 
-export default function AccountCard({account}: {account: BankAccountData}) {
+export default function AccountCard({account, context, id}: {
+    account: BankAccountData,
+    context: string,
+    id?: string
+}) {
     const [isSmallScreen, setIsSmallScreen] = useState(false);
     const router = useRouter();
 
@@ -16,13 +20,16 @@ export default function AccountCard({account}: {account: BankAccountData}) {
     }, []);
 
     const handleRedirect = () => {
-        router.push(`/dashboard/${account.nordigen_id}`)
+        if (context === "dashboard")
+            router.push(`/dashboard/${account.nordigen_id}`)
+        else if (context === "donate")
+            router.push(`/donate/${id}/${account.nordigen_id}`)
     }
 
     return (
         <Card isPressable isHoverable css={{maxWidth: 800}} onPress={handleRedirect}>
             <Card.Body>
-                <Row css={{alignItems: "center", justifyContent:"center"}}>
+                <Row css={{alignItems: "center", justifyContent: "center"}}>
                     <Spacer x={1}/>
                     {!isSmallScreen && (
                         <>
