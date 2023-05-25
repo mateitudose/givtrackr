@@ -2,12 +2,15 @@ import {Button, Navbar, Spacer, Text} from "@nextui-org/react";
 import Link from "next/link";
 import {Logo} from "@/components/Logo";
 import {createBrowserSupabaseClient} from "@supabase/auth-helpers-nextjs";
+import {useRouter} from "next/router";
 
 export default function HomeNavbar() {
     const supabaseClient = createBrowserSupabaseClient();
+    const router = useRouter();
 
     const handleLogout = async () => {
         await supabaseClient.auth.signOut();
+        router.replace("/");
     }
 
     return (
@@ -24,7 +27,7 @@ export default function HomeNavbar() {
                     Setări
                 </Navbar.Link>
                 <Navbar.Item>
-                    <Button auto flat as={Link} onPress={handleLogout} href={"/"}>
+                    <Button auto flat onPress={handleLogout}>
                         Deconectare
                     </Button>
                 </Navbar.Item>

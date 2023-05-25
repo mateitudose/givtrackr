@@ -104,7 +104,7 @@ export default function Settings() {
             </Container>
             <Spacer y={2}/>
             <Col css={{maxWidth: 800}}>
-                <Input readOnly initialValue={profilePageLink || ""} label={"Link public pentru donatori"}/>
+                <Input readOnly initialValue={profilePageLink || ""} label={"Link public pentru donatori"} width={"70%"}/>
                 <Spacer y={0.5}/>
                 <Input readOnly initialValue={profile?.name} label={"Numele ONG-ului"}/>
                 <Spacer y={0.5}/>
