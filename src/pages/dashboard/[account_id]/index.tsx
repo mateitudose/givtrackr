@@ -20,6 +20,10 @@ export default function TransactionsPage() {
                     account_id: account_id
                 })
             }).then((response) => {
+                if (!response.ok) {
+                    router.replace("/dashboard");
+                    return;
+                }
                 response.json().then((data) => {
                     setTransactions(data["transactions"]);
                     setLoading(false);
@@ -34,7 +38,6 @@ export default function TransactionsPage() {
             flexDirection: "column",
             textAlign: "center",
             alignItems: "center",
-            padding: 0,
             maxWidth: "100vw"
         }}>
             <Spacer y={2}/>
@@ -43,12 +46,21 @@ export default function TransactionsPage() {
             <Text>În ultimele 90 de zile, ONG-ul a făcut plăți către următoarele entități:</Text>
             <Spacer y={2}/>
             <Col css={{maxWidth: 800, padding: "$7"}}>
-                {loading ? <Loading/> : transactions.map((transaction) => (
-                    <>
-                        <Spacer y={1}/>
-                        <TransactionCard key={transaction.internalTransactionId} transaction={transaction}/>
-                    </>
-                ))}
+                {loading ? (
+                    <Loading />
+                ) : transactions.length === 0 ? (
+                    <Text>Nicio tranzacție efectuată din acest cont!</Text>
+                ) : (
+                    transactions.map((transaction) => (
+                        <>
+                            <Spacer y={1} />
+                            <TransactionCard
+                                key={transaction.internalTransactionId}
+                                transaction={transaction}
+                            />
+                        </>
+                    ))
+                )}
             </Col>
         </Container>
     );

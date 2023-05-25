@@ -31,7 +31,7 @@ export default function Dashboard() {
                 const {
                     data,
                     error
-                } = await supabaseClient.from("users").select('name, profile_photo').eq("id", response.data.user?.id);
+                } = await supabaseClient.from("users").select('id, name, profile_photo, email, description').eq("id", response.data.user?.id);
                 if (error) {
                     console.error(error);
                     return;

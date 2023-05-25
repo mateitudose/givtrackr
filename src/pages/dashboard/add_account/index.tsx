@@ -2,13 +2,19 @@ import {Container, Grid, Image, Spacer, Text} from "@nextui-org/react";
 import AddAccountButton from "@/components/AddAccountButton";
 import {useEffect, useState} from "react";
 import {BankData} from "@/interfaces/BankData";
+import {useRouter} from "next/router";
 
 
 export default function AddAccountPage() {
     const [banks, setBanks] = useState<BankData[]>([]);
+    const router = useRouter();
 
     useEffect(() => {
         fetch("/api/get_available_banks").then((response) => {
+            if (!response.ok) {
+                router.replace("/dashboard");
+                return;
+            }
             response.json().then((data) => {
                 setBanks(data);
                 console.log(data);
