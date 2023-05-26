@@ -1,13 +1,10 @@
 import {useRouter} from "next/router";
-import {Button, Col, Container, Grid, Image, Row, Spacer, Spinner, Text} from "@nextui-org/react";
+import {Col, Container, Grid, Image, Spacer, Spinner, Text} from "@nextui-org/react";
 import {useEffect, useState} from "react";
 import {BankAccountData} from "@/interfaces/BankAccountData";
 import {createBrowserSupabaseClient} from "@supabase/auth-helpers-nextjs";
 import {Profile} from "@/interfaces/Profile";
-import {Simulate} from "react-dom/test-utils";
-import load = Simulate.load;
 import AccountCard from "@/components/AccountCard";
-import Link from "next/link";
 import Footer from "@/components/Footer";
 
 
@@ -102,9 +99,9 @@ export default function DonatePage() {
                 <Spacer y={4}/>
                 <Grid.Container gap={2} justify={"center"}>
                     <Grid xs={12} sm={6} md={6} lg={4}>
-                        <Image
-                            src={profile?.profile_photo ?? "https://rdbnqesfrqfromjoojeg.supabase.co/storage/v1/object/public/profile_photos/public/default/default-user-image.png"}
-                            alt={"ONG Profile Photo"} objectFit={"cover"}/>
+                        <Image showSkeleton maxDelay={10000} css={{borderRadius: 60}}
+                               src={profile?.profile_photo ?? "https://rdbnqesfrqfromjoojeg.supabase.co/storage/v1/object/public/profile_photos/public/default/default-user-image.png"}
+                               alt={"ONG Profile Photo"} objectFit={"cover"}/>
                     </Grid>
                     <Grid xs={12} sm={6} md={6} lg={4} css={{alignItems: "center"}}>
                         <Text h4>{profile?.description}</Text>
