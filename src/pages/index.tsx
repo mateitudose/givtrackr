@@ -30,7 +30,7 @@ export default function Home() {
                             </Col>
                         </Card.Header>
                         <Card.Image
-                            src="https://kolakariola.ro/img/landing-page/hero-image-mobile.jpg"
+                            src="https://rdbnqesfrqfromjoojeg.supabase.co/storage/v1/object/public/home_page_photos/kola_kariola.webp"
                             objectFit="cover"
                             width="100%"
                             height={340}
@@ -51,7 +51,7 @@ export default function Home() {
                             </Col>
                         </Card.Header>
                         <Card.Image
-                            src="https://www.salvaticopiii.ro/sci-ro/thumbs/2e47d572-ce51-43dd-9cb4-2ba03963269e-720x405.jpg"
+                            src="https://rdbnqesfrqfromjoojeg.supabase.co/storage/v1/object/public/home_page_photos/salvati_copiii.webp"
                             objectFit="cover"
                             width="100%"
                             height={340}
@@ -72,7 +72,7 @@ export default function Home() {
                             </Col>
                         </Card.Header>
                         <Card.Image
-                            src="https://static.wixstatic.com/media/23c494_d7cb854fe2954ff79ae632976fc674d3~mv2.jpg/v1/fill/w_394,h_219,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/23c494_d7cb854fe2954ff79ae632976fc674d3~mv2.jpg"
+                            src="https://rdbnqesfrqfromjoojeg.supabase.co/storage/v1/object/public/home_page_photos/asociatia_hope.webp"
                             objectFit="cover"
                             width="100%"
                             height={340}
