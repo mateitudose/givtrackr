@@ -1,6 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1b647281-eb5a-45f7-8f47-c9972219b742/deploy-status)](https://app.netlify.com/sites/givtrackr/deploys)
 # GivTrackr
-![GivTrackr Home Page](https://github.com/mateitudose/givtrackr/assets/37705192/6ad08af3-04bd-44f1-b126-9126bf59dd50)
+![GivTrackr Home Page](https://github.com/mateitudose/givtrackr/assets/37705192/864b4314-0a5f-41c0-b1d4-34794c0d6419)
 
 ## Descriere
 GivTrackr este o aplicație web care își propune să transparentizeze donațiile către ONG-uri, pentru a căpăta încrederea potențialilor donatori. Utilizatorii pot vedea în timp real cum sunt folosiți banii donați, iar ONG-urile pot să își gestioneze mai ușor donațiile.
