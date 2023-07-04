@@ -1,6 +1,6 @@
 import {useRouter} from "next/router";
 import {Container, Grid, Image, Loading, Spacer, Text} from "@nextui-org/react";
-import TransactionCard from "@/components/TransactionCard";
+import TransactionCardAdmin from "@/components/TransactionCardAdmin";
 import {useEffect, useState} from "react";
 import {Transaction} from "@/interfaces/Transaction";
 
@@ -53,7 +53,7 @@ export default function TransactionsPage() {
                 ) : (
                     transactions.map((transaction) => (
                         <Grid xs={12} sm={6} md={6} lg={4} key={transaction.internalTransactionId}>
-                            <TransactionCard
+                            <TransactionCardAdmin
                                 transaction={transaction}
                             />
                         </Grid>

@@ -1,9 +1,6 @@
 import HomeNavbar from "@/components/HomeNavbar";
 import {Card, Col, Container, Grid, Spacer, Text} from "@nextui-org/react";
 import Footer from "@/components/Footer";
-import {createBrowserSupabaseClient} from "@supabase/auth-helpers-nextjs";
-import {useEffect, useState} from "react";
-import {User} from "@supabase/auth-helpers-react";
 
 export default function Home() {
     return (
