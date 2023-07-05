@@ -90,7 +90,7 @@ export default function Home() {
                     Banking pentru a ne conecta la conturi și pentru a vedea tranzacțiile.</Text>
                 <Spacer y={1}/>
                 <Text css={{padding: "0 $9 0 $9"}}>După conectare, tot ce trebuie să facă ONG-ul este să încarce o
-                    dovadă fiscală a plății (factură, chitanță, bon fiscal), iar în cazul transferului bancar, poți
+                    dovadă fiscală a plății (factură, chitanță, bon fiscal), iar în cazul transferului bancar, se pot
                     adăuga și detaliile plății în câmpul de referință al transferului.</Text>
             </Container>
             <Spacer y={5}/>
