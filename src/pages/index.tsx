@@ -87,11 +87,11 @@ export default function Home() {
                 <Spacer y={1}/>
                 <Text css={{padding: "0 $9 0 $9"}}>Pentru a monitoriza ieșirile din contul bancar al ONG-ului, folosim
                     Open
-                    Banking pentru a ne conecta la conturi și pentru a supraveghea tranzacțiile.</Text>
+                    Banking pentru a ne conecta la conturi și pentru a vedea tranzacțiile.</Text>
                 <Spacer y={1}/>
-                <Text css={{padding: "0 $9 0 $9"}}>După conectare, tot ce trebuie să faci este să menționezi în
-                    referința ordinului de plată în ce scop sunt cheltuiți banii, urmând ca pe viitor GivTrackr să
-                    ofere posibilitatea atașării unui document precum o factură pentru a justifica plata.</Text>
+                <Text css={{padding: "0 $9 0 $9"}}>După conectare, tot ce trebuie să facă ONG-ul este să încarce o
+                    dovadă fiscală a plății (factură, chitanță, bon fiscal), iar în cazul transferului bancar, poți
+                    adăuga și detaliile plății în câmpul de referință al transferului.</Text>
             </Container>
             <Spacer y={5}/>
             <Footer/>

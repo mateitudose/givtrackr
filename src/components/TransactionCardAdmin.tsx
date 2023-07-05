@@ -74,10 +74,10 @@ export default function TransactionCardAdmin({transaction}: { transaction: Trans
                 <Modal.Header>
                     <Col>
                         <Text id="modal-title" h4>
-                            Adaugă o factură
+                            Adaugă o dovadă fiscală*
                         </Text>
                         <Text id="modal-subtitle" size={16}>
-                            Poți adăuga o factură pentru justificarea plății
+                            Poți adăuga o dovadă pentru justificarea plății
                         </Text>
                     </Col>
                 </Modal.Header>
@@ -89,10 +89,15 @@ export default function TransactionCardAdmin({transaction}: { transaction: Trans
                     </Button>
                 </Modal.Body>
                 <Modal.Footer>
+                    <Col>
                     <Text id="modal-footer" size={14}>
                         Prin încărcarea unei facturi, iau la cunoștință că aceasta va fi disponibilă pentru vizualizare
                         de către orice potențial donator
                     </Text>
+                    <Text id="modal-footer" size={14}>
+                       *Dovada fiscală poate fi reprezentată de o factură, un bon fiscal sau o chitanță (PDF, JPG, PNG)
+                    </Text>
+                    </Col>
                 </Modal.Footer>
             </Modal>
         </>
