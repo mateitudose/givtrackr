@@ -3,9 +3,12 @@
 ![GivTrackr Home Page](https://github.com/mateitudose/givtrackr/assets/37705192/864b4314-0a5f-41c0-b1d4-34794c0d6419)
 
 ## Descriere
+Documentație disponibilă [aici](https://github.com/mateitudose/givtrackr/files/12158262/documentatie_givtrackr.pdf)!
+
 GivTrackr este o aplicație web care își propune să transparentizeze donațiile către ONG-uri, pentru a căpăta încrederea potențialilor donatori. Utilizatorii pot vedea în timp real cum sunt folosiți banii donați, iar ONG-urile pot să își gestioneze mai ușor donațiile.
 
 De asemenea, GivTrackr scapă ONG-urile de grija de a-și face propriul site web, deoarece fiecare ONG are o pagină dedicată pe GivTrackr, pentru potențialii donatori.
+
 
 ## Tehnologii utilizate
 - React
